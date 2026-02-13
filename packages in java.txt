@@ -1,0 +1,39 @@
+
+
+
+Folder : package  : 
+
+it is an keyword 
+package is same like as folder 
+package is an Collection classes & Interfaces 
+when we declared an package it should be in lowercase letter
+by using (.) we can separate package 
+package is an Frist statement in java program 
+
+
+
+Project Creation :
+
+File  --> new --> java Project (Project Name) : 
+
+src --> new --> package --> mentioned package name
+
+com.tka --> new --> class (Class Name) 
+
+
+
+Fully Qualified Name : 
+
+com.tka.Student
+
+this are built-in Packages which is provided by java language : 
+
+java.lang.String
+java.util.Scanner
+java.util.Arrays
+
+
+
+
+
+
