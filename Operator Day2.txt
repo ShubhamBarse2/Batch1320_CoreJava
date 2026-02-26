@@ -1,0 +1,163 @@
+ Todays Lecture Agenda : 
+
+Operator Day 2 : 
+
+2> Relational Operator( Comparison )-> (Binary Operator) : 
+
+-> Relational Operator are used to Compared Two things 
+-> Result Declared in Boolean (True/False) 
+
+
+>   -> Greater than
+<   -> Less than
+>=  -> Greater than equals to 
+<=  -> Less than equals to 
+==  -> Equals to 
+!=  -> Not Equals to 
+
+
+
+
+Reference Code : 
+
+
+
+public static void main(String[] args) {
+
+		// Relational Operator
+		// > , < , >= , <= , == , !=
+
+		int a = 10, b = 13;
+
+		System.out.println(a + " is Greater than " + b + "  - " + (a > b));
+		System.out.println(10 < 9);
+
+		System.out.println(9 >= 10); // 10 > 9 , 10 = 10
+		System.out.println(11 <= 10); // 10 < 9 , 10 = 10
+
+		System.out.println(a == b); // 10 == 10 - true
+		System.out.println(10 != 11); // 10 != 13 - true
+
+	}
+  
+
+
+
+2> Logical Operators (Binary Operator)  : 
+
+Logical Operator are used to connect Multiple Condition and return Boolean value(True/False)
+
+1 - True
+0 - False 
+
+1> AND (&&)
+2> OR  (||)
+3> NOT  !
+
+
+1> AND (&&)  : 
+
+   true  && true          ---> true 
+   true  && false         ---> false
+   false && true          ---> false
+   false && false         ---> false 
+
+
+                System.out.println(1 > 7 && 10 == 7); // false
+		System.out.println(10 <= 7 && 10 != 7); // false
+		System.out.println(10 < 7 && 10 > 7); // false
+		System.out.println(10 == 10 && 10 != 7); // true
+   
+
+
+2> OR (||) : 
+
+
+   true  || true          ---> true  
+   true  || false         ---> true
+   false || true          ---> true
+   false || false         ---> false  
+
+
+                System.out.println(10 != 7 || 10 > 7); // true
+		System.out.println(10 <= 7 || 10 != 7); // true
+		System.out.println(10 < 7 || 10 > 7); // true
+		System.out.println(10 == 10 || 10 != 7); // true
+
+
+  
+                   System.out.println((1 > 7 || 10 == 7) && (3 > 9 || 5 <= 9)); // false 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.tka;
+
+public class Day2 {
+
+	public static void main(String[] args) {
+
+		int a = 4, b = 10;
+
+//		boolean c = a != b;
+
+//		System.out.println(a > b);
+//		System.out.println(4 < 1);
+
+//		System.out.println(4 >= 4); 
+//		System.out.println(4 <= 4);
+
+//		System.out.println(4 == 2);
+//		System.out.println(b > a);
+
+//		System.out.println(false && false);
+//		System.out.println(true && true);
+//		System.out.println(true && false);
+//		System.out.println(false && true);
+//		System.out.println("--------------------------");
+//		System.out.println(false || true);
+//		System.out.println(true || true);
+//		System.out.println(false || false);
+//		System.out.println(true || false);
+
+//		System.out.println(20 < 3 && (1 >= 0 || 2 == 5) && 22 != 90);
+//		System.out.println(false && 22 != 90);
+
+		System.out.println((0 < 3) && (1 >= 0 || 2 <= 5) && 22 >= 90); // false
+		System.out.println((10 == 9) || (1 >= 0 && 100 > 5) && 2 > 0); // true
+		System.out.println((30 >= 29) && (20 > 19) || (1 >= 0 || 2 <= 5) && 22 >= 90); // false
+		System.out.println(true || false); // true
+//		
+//		boolean check = true;
+//
+//		System.out.println(10 > 45 && 20 < 9 || check && true);
+//		System.out.println((true) || 0 < 9 || check || 0 > 0);
+//		System.out.println(1 > 5 || 2 < 9 || false && 0 == 0);
+//		System.out.println(check && (20 < 9) || 45 != 0 && true);
+
+	}
+
+}
+
+
+
+
+3> NOT 
+
+
+
+
