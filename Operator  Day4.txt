@@ -1,0 +1,168 @@
+5. Assignment Operator (binary) : 
+
+: Assignment operators are used to assign values to variables.
+
+
+int a = 2;      a+=5    a = a+5  a=2+5    a = 7
+
+
+        assign        =      a = 2
+  Add & assign       +=      a+=3 
+  Sub & assign       -=     
+  Mul & assign       *=    
+  Divide & assign  Q /=
+  mod & assign     R %=
+
+
+   
+
+ 6. Bitwise Operator :
+
+:  Bitwise operators are those operators in Java that perform operations bit by bit
+
+
+ &
+ |
+ ^ 
+ ~ 
+ >>
+ << 
+
+
+1 - true 
+0 - false 
+
+
+& :  
+
+ true(1) && true(1)  = true(1)
+ true(1) && false(0)  = false(0)
+ false(0) && true(1)  = false(0)
+ false(0) && false(0)  = false(0)
+
+
+| :  
+
+ true(1) && true(1)  = true(1)
+ true(1) && false(0)  = true(1)
+ false(0) && true(1)  = true(1)
+ false(0) && false(0)  = false(0)
+      
+
+
+
+  & AND
+  | OR
+  >> left            (4>>2)  // 4 shift by 2 on left side  
+  << right 
+
+
+
+
+
+
+Bitwise Operator : 
+
+^ - XOR 
+
+X-OR truth table : 
+
+1 - 1 = 0
+1 - 0 = 1
+0 - 1 = 1
+0 - 0 = 0
+
+
+
+~ Complement (Unary Operator) :
+
+
+example :
+ 
+ ~3    ---> -4
+ ~-2   --->  1
+
+
+
+
+
+
+& AND :  
+ 
+1 & 1 --> 1
+1 & 0 --> 0
+0 & 1 --> 0
+0 & 0 --> 0
+
+
+| OR :  
+ 
+1 & 1 --> 1
+1 & 0 --> 1
+0 & 1 --> 1
+0 & 0 --> 0
+
+
+^ XOR :
+
+1 & 1 --> 0
+1 & 0 --> 1
+0 & 1 --> 1
+0 & 0 --> 0
+
+
+
+
+
+
+Reference Code : 
+
+public class OperatorDay4 {
+
+//	public static void main(String[] args) {
+//
+//		int a = 4;
+//
+////		a = a += 4;
+//
+////		a -= 4;
+////		a *= 4;
+////		a /= 4;
+//		a %= 4;
+//
+//		System.out.println(a);
+
+	public static void main(String[] args) {
+
+//		System.out.println(17 | 55);
+//		System.out.println(17 & 55);
+//		System.out.println(13 << 3); left shift
+//		System.out.println(13 >> 5); // right shift
+
+		int a = 4;
+
+		a++;  // 5
+		a += 3; // 8
+		--a;  // 7
+		System.out.println(a++); // 7 // 8
+		a %= 2; // 0
+		System.out.println(a >> 3);  // 0
+
+		System.out.println(a + 3); //    0+3 = 3
+		a++;  // 1
+		System.out.println(a);  // 1
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+    
