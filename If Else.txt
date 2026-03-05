@@ -1,0 +1,165 @@
+
+
+Agenda of the Day : 
+
+Control flow Statement :
+
+keywords used : { if else switch case continue break for while do }
+
+
+1> If Else Statements : 
+
+it is used to apply conditions on variables or Values :
+
+
+
+
+
+
+
+Types of if else : 
+
+1. Simple if Statement :
+2. if else statement :
+3. if else ladder statement : 
+4. nested if statement :
+5. nested if-else statement :
+
+
+
+
+note : Operator which are used for to create Conditions :   
+logical Operator 
+Relational Operator / Comparison 
+
+
+
+
+
+syntax : 
+
+true / false 
+
+1> Simple if Statement :
+
+if(condition){
+ 
+ // when if block condition is true then it is executed 
+}
+
+
+2> Simple if-else Statement :
+
+if(condition){
+ 
+ // when if block condition is true then it is executed 
+}else{
+ 
+}
+
+
+
+
+3> if else Ladder : 
+
+
+if(condition 1){
+ 
+ // when if block condition is true then it is executed
+ 
+}else if(condition 2) {
+ 
+}
+
+else {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ref Code : 
+
+
+
+
+package com.tka;
+
+public class Day1 {
+
+	public static void main(String[] args) {
+
+//		int a = 56;
+//
+//		if (a >100) {
+//			System.out.println("A is Greater than 100");
+//		}
+//		else {
+//			System.out.println("A is Less than 100");
+//		}
+
+		int num = 32;
+
+		if (num % 2 != 0) {
+			System.out.println("Even No - " + num);
+		} else {
+			System.out.println("ODD No - " + num);
+		}
+
+//		String clr = "Blue";
+//
+//		if (clr == "Red") {
+//			System.out.println("STOP ... !");
+//		} else if (clr == "Yellow") {
+//			System.out.println("Ready to Go ... !");
+//		} else if (clr == "Green") {
+//			System.out.println("GO ... !");
+//		} else {
+//			System.out.println("Invalid Input ... !");
+//		}
+
+	}
+
+}
+
+
+
+
+Voting Machine : 
+
+int age = 19;
+
+
+   if(age >= 18) {
+
+System.out.println("u r Eligible for Voting ... !");
+
+   } else {
+System.out.println("u r NOT Eligible for Voting ... !");
+   }
+
+
+
+
+
+
+Practise Questions : 
+
+
+1 . Check Even or Odd Number
+2 . Check if a Person Can Vote
+3 . Positive or Negative Number
+4 . Write a program to check whether a number is positive, negative, or zero.
+6 . Write a program to compare two numbers and print the greater one.
