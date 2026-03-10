@@ -1,0 +1,122 @@
+Switch case : 
+
+Code reference  :
+
+Example 1 : 
+
+public static void main(String[] args) {
+
+		String color = "Green";
+		switch (color) {
+
+		case "Red":
+			System.out.println("STOP");
+			break;
+		case "Green":
+			System.out.println("GO");
+			break;
+		case "Yellow":
+			System.out.println("GET READY");
+			break;
+
+		default:
+			System.out.println("Invalid Input");
+		}
+
+	}
+
+
+Example 2 : 
+
+
+public static void main(String[] args) {
+
+		char grade = '@';
+		switch (grade) {
+
+		case 'A':
+			System.out.println("Range -> 90 to 100  -> Excellent");
+			break;
+		case 'B':
+			System.out.println("Range -> 80 to 90  -> Very Good");
+			break;
+		case 'C':
+			System.out.println("Range -> 70 to 80  -> Good");
+			break;
+		case 'D':
+			System.out.println("Range -> 60 to 70  -> Average");
+			break;
+		case 'F':
+			System.out.println("Fail -> Better Luck Next Time .... ! ");
+			break;
+		default:
+			System.out.println("Invalid Input");
+		}
+
+	}
+
+
+
+
+Example 3 : 
+
+
+
+public static void main(String[] args) {
+
+		int num = 100;
+		switch (num) {
+
+		case 0:
+			System.out.println("SUNDAY");
+			break;
+		case 1:
+			System.out.println("MONDAY");
+			break;
+		case 2:
+			System.out.println("TUESDAY");
+			break;
+		case 3:
+			System.out.println("WEDNESDAY");
+			break;
+		case 4:
+			System.out.println("THUSDAY");
+			break;
+		case 5:
+			System.out.println("FRIDAY");
+			break;
+
+		case 6:
+			System.out.println("SATURDAY");
+			break;
+		default:
+			System.out.println("INVALID INPUT ... !");
+		}
+
+	}
+
+
+
+
+
+
+example 4 : 
+
+
+
+
+public static void main(String[] args) {
+
+		int num = 21;
+		switch (num % 2) {
+
+		case 0:
+			System.out.println("Even Number");
+			break;
+		case 1:
+			System.out.println("ODD Number ");
+			break;
+
+		}
+	}
+
