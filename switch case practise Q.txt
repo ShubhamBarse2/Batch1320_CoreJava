@@ -1,0 +1,153 @@
+Practise Session : 
+
+based on switch case statement in java : 
+
+1. Check Character Case
+
+Write a Java program using switch case to check whether a character is:
+
+Uppercase
+
+Lowercase
+
+2. Check Weekday or Weekend
+
+Write a Java program using switch case to check whether the day number represents:
+
+Weekday
+
+Weekend
+
+3. Check Arithmetic Operation Name
+
+Write a Java program using switch case to print operation name.
+
+Example:
+1 → Addition
+2 → Subtraction
+3 → Multiplication
+4 → Division
+
+4. Fruit Price Menu
+
+Write a Java program using switch case to display price of fruits.
+
+Example:
+1 → Apple ₹100
+2 → Mango ₹80
+3 → Banana ₹40
+4 → Orange ₹60
+
+5. Language Selection
+
+Write a Java program using switch case to display greeting message.
+
+Example:
+1 → English → Hello
+2 → Hindi → Namaste
+3 → Marathi → Namaskar
+
+6. Student Result Status
+
+Write a Java program using switch case.
+
+Input: Grade letter
+A → Distinction
+B → First Class
+C → Second Class
+D → Pass
+F → Fail
+
+7. Season Based on Month
+
+Write a Java program using switch case to print season.
+
+Example:
+Dec–Feb → Winter
+Mar–May → Summer
+Jun–Sep → Monsoon
+Oct–Nov → Autumn
+
+8. ATM Menu
+
+Write a Java program using switch case.
+
+1 → Check Balance
+2 → Withdraw Money
+3 → Deposit Money
+4 → Exit
+
+9. Simple Food Menu
+
+Write a Java program using switch case.
+
+1 → Pizza
+2 → Burger
+3 → Sandwich
+4 → Pasta
+
+Print the selected food.
+
+10. Check Digit Name
+
+Write a Java program using switch case to display digit name.
+
+Example:
+0 → Zero
+1 → One
+2 → Two
+…
+9 → Nine
+
+11. Area of Shapes
+
+Write a Java program using switch case.
+
+1 → Square
+2 → Circle
+3 → Rectangle
+
+Calculate area based on choice.
+
+12. Check Number Range
+
+Write a Java program using switch case.
+
+Example:
+Input: number / 10
+
+0–3 → Low
+4–7 → Medium
+8–10 → High
+
+13. Company Department
+
+Write a Java program using switch case.
+
+1 → HR
+2 → Finance
+3 → IT
+4 → Marketing
+
+Print department name.
+
+14. Vehicle Type
+
+Write a Java program using switch case.
+
+1 → Bike
+2 → Car
+3 → Bus
+4 → Truck
+
+Print vehicle type.
+
+15. Check Password Strength Level
+
+Write a Java program using switch case.
+
+Input level number:
+
+1 → Weak Password
+2 → Medium Password
+3 → Strong Password
