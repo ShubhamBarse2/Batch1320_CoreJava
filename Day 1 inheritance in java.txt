@@ -1,0 +1,103 @@
+
+
+Todays Lecture Agenda : 
+
+OOPs : main piler Inheritance(IS-A Relationship) : 
+
+Inheritance is an core concepts of Object Oriented Programming.
+it is an approach where one class can acquired all the properties(V + M) of another class
+Parent : super class 
+child : sub class 
+it is an process where child(sub class) can acquired all the properties of parent(super class)
+it is achieved by extends keywords  
+inheritance is also called as IS-A Relational 
+
+Example : 
+
+Dog IS-A Animal 
+Square IS-A Shapes 
+Sonali IS-A Girls 
+Apple IS-A Fruits 
+
+
+note : inheritance is used to achieved Run Time Polymorphism(method Overriding)
+       Reusability  
+
+
+
+
+syntax : 
+
+
+public class Parent {
+ // V + M
+}
+
+
+public class Child extends Parent {
+
+}
+
+
+
+
+
+
+
+
+Example : 
+
+
+Meta(P) : 
+
+login();
+logout();
+
+
+Instagram(C) :
+addStroy();
+uploadReels();
+
+FaceBook(C) :
+addPost();
+addComment(); 
+
+
+
+MainClass :
+
+we can create object of Child Classes and 
+Access parent as well as child class Properties 
+
+
+
+
+1> 
+
+Base class: Product
+
+attributes(V): name, price
+method: display_product()
+Derived class: Electronics
+adds attribute: warranty
+method: show_warranty()
+
+
+2> Base class: BankAccount
+
+attributes: account_holder, balance
+methods: deposit(), withdraw()
+Derived class: SavingsAccount
+adds attribute: interest_rate
+method: add_interest()
+
+3> 
+Base class: Person
+
+attributes: name, age
+method: introduce()
+Derived class: Student
+adds attribute: grade
+method: study()
+
+
