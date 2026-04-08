@@ -1,0 +1,90 @@
+
+practise Questions on Abstract class & Interface : 
+
+1. Bank System (Abstract Class)
+Create an abstract class BankAccount with:
+abstract method calculateInterest()
+concrete method displayBalance()
+Create child classes:
+SavingAccount
+CurrentAccount
+Implement different interest logic.
+
+
+2. Vehicle System (Interface)
+Create an interface Vehicle:
+methods: start(), stop()
+Implement classes:
+Car
+Bike
+Add real-world behavior for each.
+
+
+3. Employee Salary System (Abstract + Normal Class)
+Abstract class Employee → method calculateSalary()
+Subclasses:
+FullTimeEmployee
+PartTimeEmployee
+Create a normal class Company to store and display employee details.
+
+
+4. Payment Gateway (Interface)
+Create interface Payment:
+method: pay(double amount)
+Implement:
+CreditCardPayment
+UPIPayment
+NetBanking
+
+
+5. Shape Area Calculation (Abstract Class)
+Abstract class Shape:
+abstract method area()
+Subclasses:
+Circle
+Rectangle
+Triangle
+
+
+6. Smart Device System (Interface + Normal Class)
+Interface SmartDevice:
+methods: turnOn(), turnOff()
+Classes:
+Fan
+Light
+AC
+Create a normal class Home to control all devices.
+
+
+7. Online Shopping (Abstract + Interface)
+Abstract class Product → getPrice()
+Interface Discount → applyDiscount()
+Classes:
+Electronics
+Clothing
+
+
+8. Notification System (Interface)
+Interface Notification:
+method: sendMessage()
+Implement:
+EmailNotification
+SMSNotification
+WhatsAppNotification
+
+
+9. Food Delivery System (Abstract Class)
+Abstract class FoodOrder:
+abstract method prepareFood()
+concrete method orderDetails()
+Subclasses:
+VegOrder
+NonVegOrder
+
+
+10. College Management (Mixed All)
+Interface Attendable → markAttendance()
+Abstract class Person → getDetails()
+Classes:
+Student
+Teacher
