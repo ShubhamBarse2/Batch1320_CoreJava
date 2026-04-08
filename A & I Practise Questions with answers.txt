@@ -1,0 +1,509 @@
+
+practise Questions on Abstract class & Interface with answers : 
+
+1. Bank System (Abstract Class)
+Create an abstract class BankAccount with:
+abstract method calculateInterest()
+concrete method displayBalance()
+Create child classes:
+SavingAccount
+CurrentAccount
+Implement different interest logic.
+
+ref code : 
+
+abstract class BankAccount {
+    double balance = 10000;
+
+    abstract void calculateInterest();
+
+    void displayBalance() {
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class SavingAccount extends BankAccount {
+    void calculateInterest() {
+        double interest = balance * 0.05;
+        System.out.println("Saving Interest: " + interest);
+    }
+}
+
+class CurrentAccount extends BankAccount {
+    void calculateInterest() {
+        double interest = balance * 0.02;
+        System.out.println("Current Interest: " + interest);
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        SavingAccount s = new SavingAccount();
+        s.displayBalance();
+        s.calculateInterest();
+
+        CurrentAccount c = new CurrentAccount();
+        c.displayBalance();
+        c.calculateInterest();
+    }
+}
+
+
+
+
+
+2. Vehicle System (Interface)
+Create an interface Vehicle:
+methods: start(), stop()
+Implement classes:
+Car
+Bike
+Add real-world behavior for each.
+
+
+ref code :
+
+
+interface Vehicle {
+    void start();
+    void stop();
+}
+
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car starts with key");
+    }
+
+    public void stop() {
+        System.out.println("Car stops with brake");
+    }
+}
+
+class Bike implements Vehicle {
+    public void start() {
+        System.out.println("Bike starts with self button");
+    }
+
+    public void stop() {
+        System.out.println("Bike stops with brake");
+    }
+}
+
+public class Main2 {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.stop();
+
+        Bike b = new Bike();
+        b.start();
+        b.stop();
+    }
+}
+
+
+
+
+
+3. Employee Salary System (Abstract + Normal Class)
+Abstract class Employee → method calculateSalary()
+Subclasses:
+FullTimeEmployee
+PartTimeEmployee
+Create a normal class Company to store and display employee details.
+
+
+
+ref code : 
+
+
+abstract class Employee {
+    abstract void calculateSalary();
+}
+
+class FullTimeEmployee extends Employee {
+    void calculateSalary() {
+        System.out.println("Full Time Salary: 50000");
+    }
+}
+
+class PartTimeEmployee extends Employee {
+    void calculateSalary() {
+        System.out.println("Part Time Salary: 20000");
+    }
+}
+
+class Company {
+    void show(Employee e) {
+        e.calculateSalary();
+    }
+}
+
+public class Main3 {
+    public static void main(String[] args) {
+        Company c = new Company();
+        c.show(new FullTimeEmployee());
+        c.show(new PartTimeEmployee());
+    }
+}
+
+
+
+
+
+
+4. Payment Gateway (Interface)
+Create interface Payment:
+method: pay(double amount)
+Implement:
+CreditCardPayment
+UPIPayment
+NetBanking
+
+
+
+ref code : 
+
+
+interface Payment {
+    void pay(double amount);
+}
+
+class CreditCardPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid using Credit Card: " + amount);
+    }
+}
+
+class UPIPayment implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid using UPI: " + amount);
+    }
+}
+
+class NetBanking implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid using Net Banking: " + amount);
+    }
+}
+
+public class Main4 {
+    public static void main(String[] args) {
+        Payment p;
+
+        p = new CreditCardPayment();
+        p.pay(1000);
+
+        p = new UPIPayment();
+        p.pay(2000);
+
+        p = new NetBanking();
+        p.pay(3000);
+    }
+}
+
+
+5. Shape Area Calculation (Abstract Class)
+Abstract class Shape:
+abstract method area()
+Subclasses:
+Circle
+Rectangle
+Triangle
+
+
+ref code : 
+
+abstract class Shape {
+    abstract void area();
+}
+
+class Circle extends Shape {
+    void area() {
+        double r = 5;
+        System.out.println("Circle Area: " + (3.14 * r * r));
+    }
+}
+
+class Rectangle extends Shape {
+    void area() {
+        int l = 4, b = 3;
+        System.out.println("Rectangle Area: " + (l * b));
+    }
+}
+
+class Triangle extends Shape {
+    void area() {
+        int b = 4, h = 5;
+        System.out.println("Triangle Area: " + (0.5 * b * h));
+    }
+}
+
+public class Main5 {
+    public static void main(String[] args) {
+        new Circle().area();
+        new Rectangle().area();
+        new Triangle().area();
+    }
+}
+
+
+
+6. Smart Device System (Interface + Normal Class)
+Interface SmartDevice:
+methods: turnOn(), turnOff()
+Classes:
+Fan
+Light
+AC
+Create a normal class Home to control all devices.
+
+ref code : 
+
+interface SmartDevice {
+    void turnOn();
+    void turnOff();
+}
+
+class Fan implements SmartDevice {
+    public void turnOn() {
+        System.out.println("Fan ON");
+    }
+
+    public void turnOff() {
+        System.out.println("Fan OFF");
+    }
+}
+
+class Light implements SmartDevice {
+    public void turnOn() {
+        System.out.println("Light ON");
+    }
+
+    public void turnOff() {
+        System.out.println("Light OFF");
+    }
+}
+
+class AC implements SmartDevice {
+    public void turnOn() {
+        System.out.println("AC ON");
+    }
+
+    public void turnOff() {
+        System.out.println("AC OFF");
+    }
+}
+
+class Home {
+    void control(SmartDevice d) {
+        d.turnOn();
+        d.turnOff();
+    }
+}
+
+public class Main6 {
+    public static void main(String[] args) {
+        Home h = new Home();
+        h.control(new Fan());
+        h.control(new Light());
+        h.control(new AC());
+    }
+}
+
+
+
+
+
+
+7. Online Shopping (Abstract + Interface)
+Abstract class Product → getPrice()
+Interface Discount → applyDiscount()
+Classes:
+Electronics
+Clothing
+
+
+ref code : 
+
+
+interface Discount {
+    void applyDiscount();
+}
+
+abstract class Product {
+    abstract void getPrice();
+}
+
+class Electronics extends Product implements Discount {
+    void getPrice() {
+        System.out.println("Electronics Price: 20000");
+    }
+
+    public void applyDiscount() {
+        System.out.println("Electronics Discount: 10%");
+    }
+}
+
+class Clothing extends Product implements Discount {
+    void getPrice() {
+        System.out.println("Clothing Price: 2000");
+    }
+
+    public void applyDiscount() {
+        System.out.println("Clothing Discount: 20%");
+    }
+}
+
+public class Main7 {
+    public static void main(String[] args) {
+        Electronics e = new Electronics();
+        e.getPrice();
+        e.applyDiscount();
+
+        Clothing c = new Clothing();
+        c.getPrice();
+        c.applyDiscount();
+    }
+}
+
+
+
+8. Notification System (Interface)
+Interface Notification:
+method: sendMessage()
+Implement:
+EmailNotification
+SMSNotification
+WhatsAppNotification
+
+
+ref code : 
+
+interface Notification {
+    void sendMessage();
+}
+
+class EmailNotification implements Notification {
+    public void sendMessage() {
+        System.out.println("Email Sent");
+    }
+}
+
+class SMSNotification implements Notification {
+    public void sendMessage() {
+        System.out.println("SMS Sent");
+    }
+}
+
+class WhatsAppNotification implements Notification {
+    public void sendMessage() {
+        System.out.println("WhatsApp Message Sent");
+    }
+}
+
+public class Main8 {
+    public static void main(String[] args) {
+        new EmailNotification().sendMessage();
+        new SMSNotification().sendMessage();
+        new WhatsAppNotification().sendMessage();
+    }
+}
+
+
+
+
+9. Food Delivery System (Abstract Class)
+Abstract class FoodOrder:
+abstract method prepareFood()
+concrete method orderDetails()
+Subclasses:
+VegOrder
+NonVegOrder
+
+
+ref code : 
+
+abstract class FoodOrder {
+    abstract void prepareFood();
+
+    void orderDetails() {
+        System.out.println("Order placed successfully");
+    }
+}
+
+class VegOrder extends FoodOrder {
+    void prepareFood() {
+        System.out.println("Preparing Veg Food");
+    }
+}
+
+class NonVegOrder extends FoodOrder {
+    void prepareFood() {
+        System.out.println("Preparing Non-Veg Food");
+    }
+}
+
+public class Main9 {
+    public static void main(String[] args) {
+        VegOrder v = new VegOrder();
+        v.orderDetails();
+        v.prepareFood();
+
+        NonVegOrder n = new NonVegOrder();
+        n.orderDetails();
+        n.prepareFood();
+    }
+}
+
+
+10. College Management (Mixed All)
+Interface Attendable → markAttendance()
+Abstract class Person → getDetails()
+Classes:
+Student
+Teacher
+
+
+
+ref code : 
+
+interface Attendable {
+    void markAttendance();
+}
+
+abstract class Person {
+    abstract void getDetails();
+}
+
+class Student extends Person implements Attendable {
+    void getDetails() {
+        System.out.println("Student Details");
+    }
+
+    public void markAttendance() {
+        System.out.println("Student Attendance Marked");
+    }
+}
+
+class Teacher extends Person implements Attendable {
+    void getDetails() {
+        System.out.println("Teacher Details");
+    }
+
+    public void markAttendance() {
+        System.out.println("Teacher Attendance Marked");
+    }
+}
+
+public class Main10 {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.getDetails();
+        s.markAttendance();
+
+        Teacher t = new Teacher();
+        t.getDetails();
+        t.markAttendance();
+    }
+}
