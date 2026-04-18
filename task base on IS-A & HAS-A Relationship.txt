@@ -1,0 +1,62 @@
+1. Employee System
+Create a class Employee and extend it into Developer and Manager.
+
+Add common properties like id, name, salary
+Add specific behavior like writeCode() and manageTeam()
+
+2. Vehicle System
+Create a base class Vehicle and extend it into Car, Bike, and Truck.
+
+Add method start() in parent
+Override it in child classes
+
+3. Bank Account System
+Create a class Account and extend it into SavingAccount and CurrentAccount.
+
+Add method calculateInterest() with different logic
+
+4. Shape Hierarchy
+Create a class Shape and extend into Circle, Rectangle, Triangle.
+
+Override method draw() and area()
+
+5. Online User System
+Create a class User and extend into Admin and Customer.
+
+Admin can manageUsers()
+Customer can placeOrder()
+
+
+6. Student and Address
+Create class Student which HAS-A Address.
+
+Address contains city, state, pincode
+
+7. Car and Engine
+Create class Car which HAS-A Engine.
+
+Engine has properties like engineType, horsePower
+
+8. Library System
+Create class Library which HAS-A list of Book objects.
+
+Add functionality to add/remove books
+
+9. Company and Employee
+Create class Company which HAS-A multiple Employee.
+
+Store employees in array (no collection framework)
+
+10. Order and Product
+Create class Order which HAS-A multiple Product.
+
+Each product has price, quantity
+Calculate total bill in Order
+ Bonus (Mixed Concept - IS-A + HAS-A)
+
+Try combining both concepts:
+
+11. Hospital System
+
+Doctor and Patient IS-A Person
+Hospital HAS-A multiple Doctor and Patient
