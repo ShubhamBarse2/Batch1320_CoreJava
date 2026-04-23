@@ -1,0 +1,32 @@
+Garbage Collection : 
+
+What is Garbage Collection?
+Garbage Collection (GC) in Java is the automatic memory management process where the JVM removes unused objects from memory.
+GC deletes objects that are no longer used to free memory.
+
+
+Why Garbage Collection?
+Without GC:
+Programmer must manually free memory (like in C/C++)
+High chance of memory leaks & crashes
+With Java GC:
+Automatic memory cleanup
+Better performance
+No manual memory handling
+
+
+Memory Structure in Java
+
+Java memory is mainly divided into:
+Heap Memory (Important for GC)
+Objects are stored here
+GC works here
+Stack Memory
+Stores method calls and variables
+GC does NOT work here
+
+
+Can We Force GC?
+NO (Important interview point)
+But we can request JVM:
+System.gc();
