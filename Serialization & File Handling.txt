@@ -1,0 +1,17 @@
+
+Serialization in java :
+
+serialization is an process where we can converting java objects into ByteStream file. 
+the reverse process of serialization is called as Deserialization  
+
+if u want to achieved Serialization we must implements Serializable(java.io) Interface (Marker Interface)
+
+File Handling : 
+it is also process where we can performed file Creation , updation , insertion , deletion(read & write) operation on file is called file Handling : 
+File handling in Java is used to store, retrieve, and manipulate data permanently using files. Unlike variables, files allow data to persist even after the program execution ends.
+
+Java provides built-in classes in the java.io  packages to perform file operations.
+
+
+Serialization   : ObjectOutputStream / FileOutputStrem  / write Operation
+DeSerialization : ObjectInputStream  / FileInputStrem   / Read Operation 
