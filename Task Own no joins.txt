@@ -1,0 +1,35 @@
+
+Task : 
+
+Scenario : E-Commerce System 
+
+Table: orders
+Column Name	Data Type
+order_id	INT (PK)
+customer_name	VARCHAR
+city	        VARCHAR
+product_name	VARCHAR
+category	VARCHAR
+price	        DECIMAL
+quantity	INT
+order_date	DATE
+payment_mode	VARCHAR
+status      	VARCHAR
+
+
+Display all orders placed by customers from Pune.
+Show all orders where price is greater than 5000.
+Find all orders where payment mode is 'UPI'.
+Display orders where status is 'Delivered'.
+Show orders where quantity is between 2 and 5.
+Display orders where category is 'Electronics' OR 'Clothing'.
+Find orders where customer name starts with 'A'.
+Show orders where product name contains 'Phone'.
+Display all orders sorted by price in descending order.
+Show orders sorted by order_date (latest first).
+Find the total revenue (price × quantity).
+select Sum(price * quantity) as totalRevenue from orders 
+Find the average price of products.
+Count how many orders are placed.
+
+
