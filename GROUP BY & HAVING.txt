@@ -1,0 +1,457 @@
+GROUP BY & HAVING : 
+
+GROUP BY is used to group rows having the same values in one or more columns.
+It is mainly used with aggregate functions like:
+COUNT()
+SUM()
+AVG()
+MAX()
+MIN()
+
+	Query : select CourseName, Count(CourseName) as aaa from tkastd group by CourseName having avg(totalFees) >45000;
+
+
+
+Definition :
+A subquery is a query inside another query.
+
+“Query inside query = Subquery”
+
+
+syntax : 
+
+
+SELECT column_name
+FROM table_name
+WHERE column_name OPERATOR (
+    SELECT column_name
+    FROM table_name
+);
+
+
+examples : 
+
+
+SELECT name, salary
+FROM employees
+WHERE salary =(
+    SELECT MAX(salary)
+    FROM employees
+);
+
+
+SELECT name,
+       (SELECT AVG(salary) FROM employees) AS avg_salary
+FROM employees;
+
+
+
+Query : select name from tkastd where totalfees =(select max(totalfees) from tkastd);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ref Queries : 
+
+
+
+
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch1299          |
+| batch1306          |
+| batch412           |
+| batch416           |
+| batch425           |
+| bookdb             |
+| dbemployee         |
+| department_service |
+| hibernate_demo     |
+| information_schema |
+| job_portal         |
+| job_portal_db      |
+| mvcapp             |
+| mysql              |
+| performance_schema |
+| sampledb           |
+| shoppingcartdb     |
+| staff_424          |
+| test1db            |
+| testdb             |
+| testtdb            |
+| user_db            |
+| user_service       |
+| userdb             |
++--------------------+
+24 rows in set (0.09 sec)
+
+mysql> use batch1306;
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_batch1306 |
++---------------------+
+| tkastd              |
++---------------------+
+1 row in set (0.03 sec)
+
+mysql> select * from takstd;
+ERROR 1146 (42S02): Table 'batch1306.takstd' doesn't exist
+mysql> select * from tkastd;
++--------+-------+------------------+-------------+--------------+-----------+------------+
+| studId | name  | email            | mobNo       | date_of_Join | totalFees | courseName |
++--------+-------+------------------+-------------+--------------+-----------+------------+
+|      1 | ram   | ram@gmail.com    |  1234567886 | 2023-12-12   |     35000 | java       |
+|      4 | ram   | ram123@gmail.com |  1234567816 | 2023-12-12   |     35000 | java       |
+|      5 | shyam | shyam@gmail.com  |  1234567883 | 2023-12-11   |     45000 | python     |
+|      6 | raj   | raj@gmail.com    |  4534567883 | 2021-10-07   |     40000 | Java       |
+|      7 | vraj  | vraj@gmail.com   |  4534561883 | 2026-10-07   |     47000 | BA         |
+|      8 | om    | om@gmail.com     |  4534561283 | 2026-10-07   |     48000 | AWS        |
+|      9 | sahil | sahil@gmail.com  |  4534561183 | 2024-03-07   |     67000 | AWS        |
+|     10 | mayur | maYUR@gmail.com  | 45345611876 | 2026-09-01   |     25000 | Testing    |
++--------+-------+------------------+-------------+--------------+-----------+------------+
+8 rows in set (0.01 sec)
+
+mysql> desc tkastd;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| studId       | int         | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(50) | NO   |     | NULL    |                |
+| email        | varchar(70) | NO   | UNI | NULL    |                |
+| mobNo        | bigint      | YES  | UNI | NULL    |                |
+| date_of_Join | date        | YES  |     | NULL    |                |
+| totalFees    | int         | YES  |     | NULL    |                |
+| courseName   | varchar(50) | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.03 sec)
+
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('shreyash','shreya@gmail.com',0987654323,'2025-12-12',90000,'TNS');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('shreya','shreya@gmail.com',0987654321,'2025-12-12',90000,'TNS');
+ERROR 1062 (23000): Duplicate entry 'shreya@gmail.com' for key 'tkastd.email'
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('shreya','shreya1@gmail.com',0987654321,'2025-12-12',90000,'TNS');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('shree','shree1@gmail.com',0987654521,'2025-12-13',90000,'python');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('om','om@gmail.com',0987654523,'2022-12-13',90500,'python');
+ERROR 1062 (23000): Duplicate entry 'om@gmail.com' for key 'tkastd.email'
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('om','om22@gmail.com',0987654523,'2022-12-13',90500,'python');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from tkastd;
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+| studId | name     | email             | mobNo       | date_of_Join | totalFees | courseName |
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+|      1 | ram      | ram@gmail.com     |  1234567886 | 2023-12-12   |     35000 | java       |
+|      4 | ram      | ram123@gmail.com  |  1234567816 | 2023-12-12   |     35000 | java       |
+|      5 | shyam    | shyam@gmail.com   |  1234567883 | 2023-12-11   |     45000 | python     |
+|      6 | raj      | raj@gmail.com     |  4534567883 | 2021-10-07   |     40000 | Java       |
+|      7 | vraj     | vraj@gmail.com    |  4534561883 | 2026-10-07   |     47000 | BA         |
+|      8 | om       | om@gmail.com      |  4534561283 | 2026-10-07   |     48000 | AWS        |
+|      9 | sahil    | sahil@gmail.com   |  4534561183 | 2024-03-07   |     67000 | AWS        |
+|     10 | mayur    | maYUR@gmail.com   | 45345611876 | 2026-09-01   |     25000 | Testing    |
+|     11 | shreyash | shreya@gmail.com  |   987654323 | 2025-12-12   |     90000 | TNS        |
+|     13 | shreya   | shreya1@gmail.com |   987654321 | 2025-12-12   |     90000 | TNS        |
+|     14 | shree    | shree1@gmail.com  |   987654521 | 2025-12-13   |     90000 | python     |
+|     16 | om       | om22@gmail.com    |   987654523 | 2022-12-13   |     90500 | python     |
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> insert into tkastd(name,email, mobno,date_of_join,totalfees,coursename)values('vikki','vikki@gmail.com',0987614523,'2021-12-13',68000,'BA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from tkastd;
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+| studId | name     | email             | mobNo       | date_of_Join | totalFees | courseName |
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+|      1 | ram      | ram@gmail.com     |  1234567886 | 2023-12-12   |     35000 | java       |
+|      4 | ram      | ram123@gmail.com  |  1234567816 | 2023-12-12   |     35000 | java       |
+|      5 | shyam    | shyam@gmail.com   |  1234567883 | 2023-12-11   |     45000 | python     |
+|      6 | raj      | raj@gmail.com     |  4534567883 | 2021-10-07   |     40000 | Java       |
+|      7 | vraj     | vraj@gmail.com    |  4534561883 | 2026-10-07   |     47000 | BA         |
+|      8 | om       | om@gmail.com      |  4534561283 | 2026-10-07   |     48000 | AWS        |
+|      9 | sahil    | sahil@gmail.com   |  4534561183 | 2024-03-07   |     67000 | AWS        |
+|     10 | mayur    | maYUR@gmail.com   | 45345611876 | 2026-09-01   |     25000 | Testing    |
+|     11 | shreyash | shreya@gmail.com  |   987654323 | 2025-12-12   |     90000 | TNS        |
+|     13 | shreya   | shreya1@gmail.com |   987654321 | 2025-12-12   |     90000 | TNS        |
+|     14 | shree    | shree1@gmail.com  |   987654521 | 2025-12-13   |     90000 | python     |
+|     16 | om       | om22@gmail.com    |   987654523 | 2022-12-13   |     90500 | python     |
+|     17 | vikki    | vikki@gmail.com   |   987614523 | 2021-12-13   |     68000 | BA         |
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select CourseName , Count(CourseName) AS TotalC from tkastd GROUP BY CourseNAME;
++------------+--------+
+| CourseName | TotalC |
++------------+--------+
+| java       |      3 |
+| python     |      3 |
+| BA         |      2 |
+| AWS        |      2 |
+| Testing    |      1 |
+| TNS        |      2 |
++------------+--------+
+6 rows in set (0.01 sec)
+
+mysql> select CourseName from tkastd;
++------------+
+| CourseName |
++------------+
+| java       |
+| java       |
+| python     |
+| Java       |
+| BA         |
+| AWS        |
+| AWS        |
+| Testing    |
+| TNS        |
+| TNS        |
+| python     |
+| python     |
+| BA         |
++------------+
+13 rows in set (0.00 sec)
+
+mysql> select CourseName , Count(CourseName) AS TotalC from tkastd GROUP BY CourseNAME HAVING totalFees > 45000;
+ERROR 1054 (42S22): Unknown column 'totalFees' in 'having clause'
+mysql> select CourseName , Count(CourseName) AS TotalC from tkastd GROUP BY CourseNAME HAVING avg(totalFees) > 45000;
++------------+--------+
+| CourseName | TotalC |
++------------+--------+
+| python     |      3 |
+| BA         |      2 |
+| AWS        |      2 |
+| TNS        |      2 |
++------------+--------+
+4 rows in set (0.01 sec)
+
+mysql> select CourseName , Count(CourseName) AS TotalC from tkastd GROUP BY CourseNAME HAVING avg(totalFees) > 85000;
++------------+--------+
+| CourseName | TotalC |
++------------+--------+
+| TNS        |      2 |
++------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select CourseName , Count(CourseName) AS TotalC from tkastd GROUP BY CourseNAME WHERE avg(totalFees) > 85000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE avg(totalFees) > 85000' at line 1
+mysql> select * from tkastd having studId = 14;
++--------+-------+------------------+-----------+--------------+-----------+------------+
+| studId | name  | email            | mobNo     | date_of_Join | totalFees | courseName |
++--------+-------+------------------+-----------+--------------+-----------+------------+
+|     14 | shree | shree1@gmail.com | 987654521 | 2025-12-13   |     90000 | python     |
++--------+-------+------------------+-----------+--------------+-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from tkastd where studId = 14;
++--------+-------+------------------+-----------+--------------+-----------+------------+
+| studId | name  | email            | mobNo     | date_of_Join | totalFees | courseName |
++--------+-------+------------------+-----------+--------------+-----------+------------+
+|     14 | shree | shree1@gmail.com | 987654521 | 2025-12-13   |     90000 | python     |
++--------+-------+------------------+-----------+--------------+-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select CourseName , Count(CourseName) AS wdsdfgnhmhgfd from tkastd GROUP BY CourseNAME HAVING avg(totalFees) > 85000;
++------------+---------------+
+| CourseName | wdsdfgnhmhgfd |
++------------+---------------+
+| TNS        |             2 |
++------------+---------------+
+1 row in set (0.01 sec)
+
+mysql> select CourseName , Count(name) AS www from tkastd GROUP BY CourseNAME HAVING avg(totalFees) > 85000;
++------------+-----+
+| CourseName | www |
++------------+-----+
+| TNS        |   2 |
++------------+-----+
+1 row in set (0.01 sec)
+
+mysql> select name , Count(name) AS www from tkastd GROUP BY CourseNAME HAVING avg(totalFees) > 85000;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'batch1306.tkastd.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select CourseName , Count(CourseName) AS wdsdfgnhmhgfd from tkastd GROUP BY CourseNAME HAVING avg(totalFees) > 85000;
++------------+---------------+
+| CourseName | wdsdfgnhmhgfd |
++------------+---------------+
+| TNS        |             2 |
++------------+---------------+
+1 row in set (0.01 sec)
+
+mysql> select Name , Count(name) AS www from tkastd GROUP BY name HAVING avg(totalFees) > 85000;
++----------+-----+
+| Name     | www |
++----------+-----+
+| shreyash |   1 |
+| shreya   |   1 |
+| shree    |   1 |
++----------+-----+
+3 rows in set (0.00 sec)
+
+mysql> select Name , Count(name) AS www from tkastd GROUP BY name HAVING avg(totalFees) > 7000;
++----------+-----+
+| Name     | www |
++----------+-----+
+| ram      |   2 |
+| shyam    |   1 |
+| raj      |   1 |
+| vraj     |   1 |
+| om       |   2 |
+| sahil    |   1 |
+| mayur    |   1 |
+| shreyash |   1 |
+| shreya   |   1 |
+| shree    |   1 |
+| vikki    |   1 |
++----------+-----+
+11 rows in set (0.01 sec)
+
+mysql> select * from tkastd'
+    '> ;
+    '> '
+    -> '
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''
+;
+'
+'
+'' at line 1
+mysql> select * from tkastd;
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+| studId | name     | email             | mobNo       | date_of_Join | totalFees | courseName |
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+|      1 | ram      | ram@gmail.com     |  1234567886 | 2023-12-12   |     35000 | java       |
+|      4 | ram      | ram123@gmail.com  |  1234567816 | 2023-12-12   |     35000 | java       |
+|      5 | shyam    | shyam@gmail.com   |  1234567883 | 2023-12-11   |     45000 | python     |
+|      6 | raj      | raj@gmail.com     |  4534567883 | 2021-10-07   |     40000 | Java       |
+|      7 | vraj     | vraj@gmail.com    |  4534561883 | 2026-10-07   |     47000 | BA         |
+|      8 | om       | om@gmail.com      |  4534561283 | 2026-10-07   |     48000 | AWS        |
+|      9 | sahil    | sahil@gmail.com   |  4534561183 | 2024-03-07   |     67000 | AWS        |
+|     10 | mayur    | maYUR@gmail.com   | 45345611876 | 2026-09-01   |     25000 | Testing    |
+|     11 | shreyash | shreya@gmail.com  |   987654323 | 2025-12-12   |     90000 | TNS        |
+|     13 | shreya   | shreya1@gmail.com |   987654321 | 2025-12-12   |     90000 | TNS        |
+|     14 | shree    | shree1@gmail.com  |   987654521 | 2025-12-13   |     90000 | python     |
+|     16 | om       | om22@gmail.com    |   987654523 | 2022-12-13   |     90500 | python     |
+|     17 | vikki    | vikki@gmail.com   |   987614523 | 2021-12-13   |     68000 | BA         |
++--------+----------+-------------------+-------------+--------------+-----------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select name from tkastd where totalfees =(select max(totalfees) from tkastd);
++------+
+| name |
++------+
+| om   |
++------+
+1 row in set (0.01 sec)
+
+mysql> select name from tkastd where totalfees =(select min(totalfees) from tkastd);
++-------+
+| name  |
++-------+
+| mayur |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select name from tkastd where totalfees =(select Count(totalfees) from tkastd);
+Empty set (0.00 sec)
+
+mysql> select name from tkastd where totalfees =(select avg(totalfees) from tkastd);
+Empty set (0.00 sec)
+
+mysql> select name from tkastd where totalfees =(select SUM(totalfees) from tkastd);
+Empty set (0.00 sec)
+
+mysql> select name from tkastd having totalfees =(select SUM(totalfees) from tkastd);
+ERROR 1054 (42S22): Unknown column 'totalfees' in 'having clause'
+mysql> select name from tkastd where totalfees =(select SUM(totalfees) from tkastd);
+Empty set (0.01 sec)
+
+mysql> select name from tkastd where totalfees =(select min(totalfees) from tkastd);
++-------+
+| name  |
++-------+
+| mayur |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select * from tkastd where totalfees =(select min(totalfees) from tkastd);
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+| studId | name  | email           | mobNo       | date_of_Join | totalFees | courseName |
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+|     10 | mayur | maYUR@gmail.com | 45345611876 | 2026-09-01   |     25000 | Testing    |
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from tkastd where studid = 10;;
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+| studId | name  | email           | mobNo       | date_of_Join | totalFees | courseName |
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+|     10 | mayur | maYUR@gmail.com | 45345611876 | 2026-09-01   |     25000 | Testing    |
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+1 row in set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> select * from tkastd where totalfees =(totalfees > 30000);
+Empty set (0.00 sec)
+
+mysql> select * from tkastd where totalfees =(totalfees > 200);
+Empty set (0.00 sec)
+
+mysql> select * from tkastd where totalfees =(totalfees = 25000);
+Empty set (0.00 sec)
+
+mysql> select * from tkastd where totalfees =(select name from tkastd where studid = 10);
+Empty set (0.00 sec)
+
+mysql> select * from tkastd where totalfees =(select min(totalfees) from tkastd);
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+| studId | name  | email           | mobNo       | date_of_Join | totalFees | courseName |
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+|     10 | mayur | maYUR@gmail.com | 45345611876 | 2026-09-01   |     25000 | Testing    |
++--------+-------+-----------------+-------------+--------------+-----------+------------+
+1 row in set (0.01 sec)
+
+mysql>
+
+
+
+

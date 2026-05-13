@@ -1,0 +1,93 @@
+
+with real world data : 
+
+Group by and Having clause : 
+
+WHERE	                  HAVING
+Filters rows           	  Filters groups
+Used before GROUP BY	  Used after GROUP BY
+Cannot use aggregate	  Can use aggregate
+
+
+refer this Queries : 
+
+CREATE TABLE employee (
+    emp_id INT,
+    emp_name VARCHAR(50),
+    department VARCHAR(50),
+    city VARCHAR(50),
+    salary INT
+);
+
+
+
+INSERT INTO employee VALUES
+(1, 'Amit', 'IT', 'Pune', 50000),
+(2, 'Rahul', 'IT', 'Mumbai', 60000),
+(3, 'Sneha', 'HR', 'Pune', 40000),
+(4, 'Pooja', 'HR', 'Mumbai', 45000),
+(5, 'Rohit', 'IT', 'Pune', 70000),
+(6, 'Neha', 'Sales', 'Delhi', 30000),
+(7, 'Karan', 'Sales', 'Delhi', 35000);
+
+
+
+
+
+
+Count employees in each department --> 
+
+SELECT department, COUNT(*) AS total_emp
+FROM employee
+GROUP BY department;
+
+
+
+Total salary per department --> 
+
+SELECT department, SUM(salary) AS total_salary
+FROM employee
+GROUP BY department;
+
+
+
+Employees count by department and city --> 
+
+SELECT department, city, COUNT(*) AS total
+FROM employee
+GROUP BY department, city;
+
+
+
+Departments with more than 2 employees --> 
+
+SELECT department, COUNT(*) AS total_emp
+FROM employee
+GROUP BY department
+HAVING COUNT(*) > 2;
+
+
+
+
+Departments with salary > 100000  -->
+
+SELECT department, SUM(salary) AS total_salary
+FROM employee
+GROUP BY department
+HAVING SUM(salary) > 100000;
+
+
+
+Pune employees grouped by department with salary > 50000 --> 
+
+SELECT department, SUM(salary) AS total_salary
+FROM employee
+WHERE city = 'Pune'
+GROUP BY department
+HAVING SUM(salary) > 50000;
+
+
+
+
+
+
