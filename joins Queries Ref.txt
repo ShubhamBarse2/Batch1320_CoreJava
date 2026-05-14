@@ -1,0 +1,417 @@
+ter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch1306          |
+| batch1320          |
+| batch412           |
+| batch416           |
+| batch425           |
+| batch426           |
+| bookdb             |
+| dbemployee         |
+| department_service |
+| hibernate_demo     |
+| information_schema |
+| job_portal         |
+| job_portal_db      |
+| mvcapp             |
+| mysql              |
+| performance_schema |
+| sampledb           |
+| shoppingcartdb     |
+| staff_424          |
+| test1db            |
+| testdb             |
+| testtdb            |
+| user_db            |
+| user_service       |
+| userdb             |
++--------------------+
+25 rows in set (0.10 sec)
+
+mysql> use batch1320;
+Database changed
+mysql> show tables ;
++---------------------+
+| Tables_in_batch1320 |
++---------------------+
+| empdata             |
+| student             |
+| tkastd              |
++---------------------+
+3 rows in set (0.01 sec)
+
+mysql> create table department(deptID int PRIMARY KEY , deptName varchar(40));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> show tables ;
++---------------------+
+| Tables_in_batch1320 |
++---------------------+
+| department          |
+| empdata             |
+| student             |
+| tkastd              |
++---------------------+
+4 rows in set (0.00 sec)
+
+mysql> create table employee(empId int PRIMARY KEY, name varchar(50),deptId int,FOREIGN KEY(deptID) REFERENCES department(deptId));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptID   | int         | NO   | PRI | NULL    |       |
+| deptName | varchar(40) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> descemployee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'descemployee' at line 1
+mysql> desc employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| empId  | int         | NO   | PRI | NULL    |       |
+| name   | varchar(50) | YES  |     | NULL    |       |
+| deptId | int         | YES  | MUL | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into department(deptId,deptName)values(1,'HR'),(2,'sales'),(3,'marketing'),(4,'finance'),(5,NULL);
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from department;
++--------+-----------+
+| deptID | deptName  |
++--------+-----------+
+|      1 | HR        |
+|      2 | sales     |
+|      3 | marketing |
+|      4 | finance   |
+|      5 | NULL      |
++--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee(empId,name,deptId)values(1001,'om',1),(1002,'Rahul',2),(1003,'sahil',3),(1004,'ram',5),(1005,'vraj,4);
+    '> ;
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> insert into employee(empId,name,deptId)values(1001,'om',1),(1002,'Rahul',2),(1003,'sahil',3),(1004,'ram',5),(1005,'vraj',4);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++-------+-------+--------+
+| empId | name  | deptId |
++-------+-------+--------+
+|  1001 | om    |      1 |
+|  1002 | Rahul |      2 |
+|  1003 | sahil |      3 |
+|  1004 | ram   |      5 |
+|  1005 | vraj  |      4 |
++-------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee(empId,name,deptId)values(1007,'priti',1),(1006,'shyam',2);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++-------+-------+--------+
+| empId | name  | deptId |
++-------+-------+--------+
+|  1001 | om    |      1 |
+|  1002 | Rahul |      2 |
+|  1003 | sahil |      3 |
+|  1004 | ram   |      5 |
+|  1005 | vraj  |      4 |
+|  1006 | shyam |      2 |
+|  1007 | priti |      1 |
++-------+-------+--------+
+7 rows in set (0.00 sec)
+
+mysql> insert into employee(empId,name,deptId)values(1009,'om',NULL);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++-------+-------+--------+
+| empId | name  | deptId |
++-------+-------+--------+
+|  1001 | om    |      1 |
+|  1002 | Rahul |      2 |
+|  1003 | sahil |      3 |
+|  1004 | ram   |      5 |
+|  1005 | vraj  |      4 |
+|  1006 | shyam |      2 |
+|  1007 | priti |      1 |
+|  1009 | om    |   NULL |
++-------+-------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from department;
++--------+-----------+
+| deptID | deptName  |
++--------+-----------+
+|      1 | HR        |
+|      2 | sales     |
+|      3 | marketing |
+|      4 | finance   |
+|      5 | NULL      |
++--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT employee.name, department.deptName FROM employee INNER JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| priti | HR        |
+| Rahul | sales     |
+| shyam | sales     |
+| sahil | marketing |
+| vraj  | finance   |
+| ram   | NULL      |
++-------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT employee.name, department.deptName FROM employee LEFT JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| Rahul | sales     |
+| sahil | marketing |
+| ram   | NULL      |
+| vraj  | finance   |
+| shyam | sales     |
+| priti | HR        |
+| om    | NULL      |
++-------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT employee.name, department.deptName FROM employee RIGHT JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| priti | HR        |
+| Rahul | sales     |
+| shyam | sales     |
+| sahil | marketing |
+| vraj  | finance   |
+| ram   | NULL      |
++-------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT employee.name, department.deptName FROM employee LEFT JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| Rahul | sales     |
+| sahil | marketing |
+| ram   | NULL      |
+| vraj  | finance   |
+| shyam | sales     |
+| priti | HR        |
+| om    | NULL      |
++-------+-----------+
+8 rows in set (0.01 sec)
+
+mysql> UNION
+    -> SELECT employee.name, department.deptName FROM employee RIGHT JOIN Department ON employee.deptId = department.deptId;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UNION
+SELECT employee.name, department.deptName FROM employee RIGHT JOIN Departm' at line 1
+mysql> SELECT employee.name, department.deptName FROM employee LEFT JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| Rahul | sales     |
+| sahil | marketing |
+| ram   | NULL      |
+| vraj  | finance   |
+| shyam | sales     |
+| priti | HR        |
+| om    | NULL      |
++-------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> UNION
+    -> SELECT employee.name, department.deptName FROM employee RIGHT JOIN Department ON employee.deptId = department.deptId;SELECT employee.name, department.deptName FROM employee LEFT JOIN Department ON employee.deptId = department.deptId
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UNION
+SELECT employee.name, department.deptName FROM employee RIGHT JOIN Departm' at line 1
+    -> UNION
+    -> SELECT employee.name, department.deptName FROM employee RIGHT JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| Rahul | sales     |
+| sahil | marketing |
+| ram   | NULL      |
+| vraj  | finance   |
+| shyam | sales     |
+| priti | HR        |
+| om    | NULL      |
++-------+-----------+
+8 rows in set (0.01 sec)
+
+mysql> SELECT employee.name, department.deptName FROM employee LEFT JOIN Department ON employee.deptId = department.deptId
+    -> UNION
+    -> SELECT employee.name, department.deptName FROM employee RIGHT JOIN Department ON employee.deptId = department.deptId;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | HR        |
+| Rahul | sales     |
+| sahil | marketing |
+| ram   | NULL      |
+| vraj  | finance   |
+| shyam | sales     |
+| priti | HR        |
+| om    | NULL      |
++-------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT employee.name , department.deptName FROM employee CROSS JOIN department;
++-------+-----------+
+| name  | deptName  |
++-------+-----------+
+| om    | NULL      |
+| om    | finance   |
+| om    | marketing |
+| om    | sales     |
+| om    | HR        |
+| Rahul | NULL      |
+| Rahul | finance   |
+| Rahul | marketing |
+| Rahul | sales     |
+| Rahul | HR        |
+| sahil | NULL      |
+| sahil | finance   |
+| sahil | marketing |
+| sahil | sales     |
+| sahil | HR        |
+| ram   | NULL      |
+| ram   | finance   |
+| ram   | marketing |
+| ram   | sales     |
+| ram   | HR        |
+| vraj  | NULL      |
+| vraj  | finance   |
+| vraj  | marketing |
+| vraj  | sales     |
+| vraj  | HR        |
+| shyam | NULL      |
+| shyam | finance   |
+| shyam | marketing |
+| shyam | sales     |
+| shyam | HR        |
+| priti | NULL      |
+| priti | finance   |
+| priti | marketing |
+| priti | sales     |
+| priti | HR        |
+| om    | NULL      |
+| om    | finance   |
+| om    | marketing |
+| om    | sales     |
+| om    | HR        |
++-------+-----------+
+40 rows in set (0.00 sec)
+
+mysql> SELECT employee.name , employee.empId , department.deptId, department.deptName FROM employee CROSS JOIN department;
++-------+-------+--------+-----------+
+| name  | empId | deptId | deptName  |
++-------+-------+--------+-----------+
+| om    |  1001 |      5 | NULL      |
+| om    |  1001 |      4 | finance   |
+| om    |  1001 |      3 | marketing |
+| om    |  1001 |      2 | sales     |
+| om    |  1001 |      1 | HR        |
+| Rahul |  1002 |      5 | NULL      |
+| Rahul |  1002 |      4 | finance   |
+| Rahul |  1002 |      3 | marketing |
+| Rahul |  1002 |      2 | sales     |
+| Rahul |  1002 |      1 | HR        |
+| sahil |  1003 |      5 | NULL      |
+| sahil |  1003 |      4 | finance   |
+| sahil |  1003 |      3 | marketing |
+| sahil |  1003 |      2 | sales     |
+| sahil |  1003 |      1 | HR        |
+| ram   |  1004 |      5 | NULL      |
+| ram   |  1004 |      4 | finance   |
+| ram   |  1004 |      3 | marketing |
+| ram   |  1004 |      2 | sales     |
+| ram   |  1004 |      1 | HR        |
+| vraj  |  1005 |      5 | NULL      |
+| vraj  |  1005 |      4 | finance   |
+| vraj  |  1005 |      3 | marketing |
+| vraj  |  1005 |      2 | sales     |
+| vraj  |  1005 |      1 | HR        |
+| shyam |  1006 |      5 | NULL      |
+| shyam |  1006 |      4 | finance   |
+| shyam |  1006 |      3 | marketing |
+| shyam |  1006 |      2 | sales     |
+| shyam |  1006 |      1 | HR        |
+| priti |  1007 |      5 | NULL      |
+| priti |  1007 |      4 | finance   |
+| priti |  1007 |      3 | marketing |
+| priti |  1007 |      2 | sales     |
+| priti |  1007 |      1 | HR        |
+| om    |  1009 |      5 | NULL      |
+| om    |  1009 |      4 | finance   |
+| om    |  1009 |      3 | marketing |
+| om    |  1009 |      2 | sales     |
+| om    |  1009 |      1 | HR        |
++-------+-------+--------+-----------+
+40 rows in set (0.00 sec)
+
+mysql> select * from  department;
++--------+-----------+
+| deptID | deptName  |
++--------+-----------+
+|      1 | HR        |
+|      2 | sales     |
+|      3 | marketing |
+|      4 | finance   |
+|      5 | NULL      |
++--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> select * form employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form employee' at line 1
+mysql> select * from employee;
++-------+-------+--------+
+| empId | name  | deptId |
++-------+-------+--------+
+|  1001 | om    |      1 |
+|  1002 | Rahul |      2 |
+|  1003 | sahil |      3 |
+|  1004 | ram   |      5 |
+|  1005 | vraj  |      4 |
+|  1006 | shyam |      2 |
+|  1007 | priti |      1 |
+|  1009 | om    |   NULL |
++-------+-------+--------+
+8 rows in set (0.00 sec)
