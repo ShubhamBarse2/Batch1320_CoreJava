@@ -1,0 +1,136 @@
+1. Reverse an Array
+
+Write a program to reverse an integer array without using another array.
+
+Example:
+
+Input: [1, 2, 3, 4, 5]
+Output: [5, 4, 3, 2, 1]
+2. Count Vowels in a String
+
+Write a method to count the number of vowels in a given string.
+
+Example:
+
+Input: "Programming"
+Output: 3
+3. Find Duplicate Elements in an Array
+
+Given an integer array, print all duplicate elements.
+
+Example:
+
+Input: [1, 2, 3, 2, 4, 5, 1]
+Output: 1, 2
+4. Check Palindrome String
+
+Check whether a string is a palindrome or not.
+
+Example:
+
+Input: "madam"
+Output: Palindrome
+5. Frequency of Characters Using HashMap
+
+Count the frequency of each character in a string using HashMap.
+
+Example:
+
+Input: "banana"
+Output:
+b -> 1
+a -> 3
+n -> 2
+6. Largest and Smallest Element in Array
+
+Find the largest and smallest number in an array.
+
+Example:
+
+Input: [12, 5, 8, 20, 1]
+Output:
+Largest = 20
+Smallest = 1
+7. Remove Duplicate Words from a Sentence
+
+Use a Set to remove duplicate words from a sentence.
+
+Example:
+
+Input: "java is easy and java is powerful"
+Output: "java is easy and powerful"
+8. Sort a List of Strings
+
+Take a list of names and sort them alphabetically using Collections.sort().
+
+Example:
+
+Input: ["Rahul", "Amit", "Neha"]
+Output: ["Amit", "Neha", "Rahul"]
+9. Find Second Largest Element
+
+Find the second largest element in an integer array.
+
+Example:
+
+Input: [10, 20, 4, 45, 99]
+Output: 45
+10. Check Anagram Strings
+
+Check whether two strings are anagrams.
+
+Example:
+
+Input: "listen", "silent"
+Output: Anagram
+11. Store Students in ArrayList
+
+Create a Student class with:
+
+id
+name
+marks
+
+Store multiple students in an ArrayList and print students scoring above 75.
+
+12. Rotate Array by K Positions
+
+Rotate an array to the right by k positions.
+
+Example:
+
+Input: [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+13. Find First Non-Repeated Character
+
+Find the first non-repeated character in a string using LinkedHashMap.
+
+Example:
+
+Input: "aabbcddee"
+Output: c
+14. Merge Two Arrays
+
+Merge two arrays into one array without using built-in merge methods.
+
+Example:
+
+Input:
+[1,2,3]
+[4,5,6]
+
+Output:
+[1,2,3,4,5,6]
+15. Employee Management Using HashMap
+
+Create a HashMap<Integer, String> where:
+
+Key = Employee ID
+Value = Employee Name
+
+Perform:
+
+Add employees
+Search employee by ID
+Remove employee
+Display all employees
